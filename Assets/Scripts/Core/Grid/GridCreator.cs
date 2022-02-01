@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Linq;
 
-public class LevelGrid : MonoBehaviour
+public class GridCreator : MonoBehaviour
 {
     public int width;
     public int height; 
@@ -55,11 +55,15 @@ public class LevelGrid : MonoBehaviour
         var randomHeigth = Mathf.FloorToInt(Random.Range((float)minHeight, (float)maxHeigth));
         Debug.Log("Width :" + randomWidth + "Heigth :" + randomHeigth);
     }
-
-
 }
 
 
+
+[CreateAssetMenu()]
+public class GridData : ScriptableObject
+{
+
+}
 
 
 

@@ -25,3 +25,30 @@ public class Cell : MonoBehaviour
     }
 
 }
+
+
+
+
+public class CellObject : MonoBehaviour
+{
+    public Cell cell;
+
+    public void Init()
+    {
+
+    }
+
+    public Cell GetCell(int xPosition,int yPosition)
+    {
+        return CellReference.cellArray[xPosition, yPosition];
+    }
+
+
+}
+
+
+public class CellReference
+{
+    public static Cell[,] cellArray;
+
+}
