@@ -2,53 +2,33 @@
 using System.Collections;
 using UnityEngine;
 
-public class Cell : MonoBehaviour
-{
-    public BoxCollider2D boxCollider;
-    public int xPosition { get; set; }
-    public int yPosition { get; set; }
-    public bool isTransversable { get; set; }
-
-
-    public void Init(int xPosition,int yPosition)
-    {
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
-        boxCollider = GetComponent<BoxCollider2D>();
-    }
-
-
-
-    public void AssignCellSpriteImage(Sprite sprite)
-    {
-        GetComponent<SpriteRenderer>().sprite = sprite;
-    }
-
-}
-
-
-
 
 public class CellObject : MonoBehaviour
 {
     public Cell cell;
+    public BoxCollider2D boxCollider;
 
     public void Init()
     {
-
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    public Cell GetCell(int xPosition,int yPosition)
+    public void Start()
     {
-        return CellReference.cellArray[xPosition, yPosition];
+        Init();
     }
-
-
 }
 
-
-public class CellReference
+public class Cell
 {
-    public static Cell[,] cellArray;
+    public int xPosition { get; set; }
+    public int yPosition { get; set; }
+    public bool isTransversable { get; set; }
+
+    public Cell(int xPosition, int yPosition)
+    {
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+    }
 
 }

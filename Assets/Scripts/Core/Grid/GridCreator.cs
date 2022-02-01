@@ -6,66 +6,61 @@ using System.Linq;
 
 public class GridCreator : MonoBehaviour
 {
-    public int width;
-    public int height; 
-    public int widthMargin;
-    public int heigthMargin;
-    public Cell baseCell;
+    public GridData gridData;
+    public CellObject[,] cellObjectArray;
     public Cell[,] cellArray;
-    public List<Sprite> spriteList;
 
     public void Start()
     {
         Init();
     }
-    public void Update()
+
+    public int GetRandomGeneratedWidth()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CreateDungeonGeneratorFrame();
-        }
+        var minWidth = gridData.width;
+        var maxWidth = gridData.widthMargin;
+        var randomWidth = Mathf.FloorToInt(Random.Range((float)minWidth, (float)maxWidth));
+        return randomWidth;
+    }
+
+    public int GetRandomGeneratedHeigth()
+    {
+        var minHeight = gridData.height;
+        var maxHeigth = gridData.heightMargin;
+        var randomHeigth = Mathf.FloorToInt(Random.Range((float)minHeight, (float)maxHeigth));
+        return randomHeigth;
     }
     public void Init()
     {
-        cellArray = new Cell[width, height];
+        cellArray = new Cell[GetRandomGeneratedWidth(), GetRandomGeneratedHeigth()];
         CreateGrid();
     }
     public void CreateGrid()
     {
-        for (int i = 0; i < height; i++)
+        for (int i = 0; i < gridData.width; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < gridData.height; j++)
             {
-                cellArray[j, i] = Instantiate(baseCell);
-                // Grid Position
-                cellArray[j, i].Init(j,i);
-                // World Position
-                cellArray[j, i].transform.position = new Vector2(j * 0.65f, i * 0.65f);
-                cellArray[j, i].AssignCellSpriteImage(spriteList[0]);
+                var cell = new Cell(j, i);
+                var cellObject = Instantiate(gridData.cellOriginalObject);
+                cellObject.transform.position =  new Vector2(j * 0.65f, i * 0.65f);
+                CellReferencer.LinkCells(cell, cellObject);
             }
         }
     }
-    public void CreateDungeonGeneratorFrame()
+
+
+}
+
+public class SpriteDataMap
+{
+    public List<Sprite> cellSpriteList;
+
+    public void AssignCellSpriteImage(CellObject cellObject,Sprite sprite)
     {
-        var minWidth = width;
-        var maxWidth = widthMargin;
-        var randomWidth = Mathf.FloorToInt(Random.Range((float)minWidth, (float)maxWidth));
-        var minHeight = height;
-        var maxHeigth = heigthMargin;
-        var randomHeigth = Mathf.FloorToInt(Random.Range((float)minHeight, (float)maxHeigth));
-        Debug.Log("Width :" + randomWidth + "Heigth :" + randomHeigth);
+        cellObject.GetComponent<SpriteRenderer>().sprite = sprite;
     }
 }
-
-
-
-[CreateAssetMenu()]
-public class GridData : ScriptableObject
-{
-
-}
-
-
 
 //public Vector3 GetMaximumCoordinatesValue()
 //{
