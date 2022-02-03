@@ -11,6 +11,5 @@ public class GridData : ScriptableObject
     public int heightMargin;
     public GameObject cellPrefab;
     public List<Sprite> cellSpriteList;
-
 }
 

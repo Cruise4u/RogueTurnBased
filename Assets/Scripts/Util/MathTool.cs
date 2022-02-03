@@ -1,62 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using System.Linq;
 
-public class GridGenerator : MonoBehaviour
+public static class MathTool
 {
-    public GridData gridData;
-    public CellObject[,] cellObjectArray;
-    public Cell[,] cellArray;
+	public static int GetMedianValue(int number)
+	{
+		int value = 0;
+		if (number % 2 == 0)
+		{
+			value = number / 2;
+		}
+		else
+		{
+			value = Mathf.RoundToInt(number / 2);
+		}
+		return value;
+	}
 
-    public int GetRandomGeneratedWidth()
-    {
-        var minWidth = gridData.width;
-        var maxWidth = gridData.widthMargin;
-        var randomWidth = Mathf.RoundToInt(Random.Range((float)minWidth, (float)maxWidth));
-        Debug.Log(randomWidth);
-        return randomWidth;
-    }
+	public static int GetRandomValue(int min,int max)
+	{
+		int value = Random.Range(min, max);
+		return value;
+	}
 
-    public int GetRandomGeneratedHeigth()
-    {
-        var minHeight = gridData.height;
-        var maxHeigth = gridData.heightMargin;
-        var randomHeigth = Mathf.RoundToInt(Random.Range((float)minHeight, (float)maxHeigth));
-        Debug.Log(randomHeigth);
-        return randomHeigth;
-    }
-    public void CreateGrid()
-    {
-        GameObject cellParentObject = new GameObject();
-        for (int i = 0; i < gridData.height; i++)
-        {
-            for (int j = 0; j < gridData.width; j++)
-            {
-                var cell = new Cell(j,i);
-                var cellInstance = Instantiate(gridData.cellPrefab);
-                cellInstance.AddComponent<CellObject>();
-                cellInstance.GetComponent<CellObject>().cell = cell;
-                cellInstance.transform.position = new Vector2(j * 0.65f, i * 0.65f);
-                CellReferencer.LinkCells(cell, cellInstance.GetComponent<CellObject>());
-                TileSpritePainterTool.DrawSpriteOnCell(cellInstance.GetComponent<CellObject>(), gridData.cellSpriteList[0]);
-                cellInstance.transform.SetParent(cellParentObject.transform);
-            }
-        }
-    }
-
-    public void Init()
-    {
-        cellArray = new Cell[GetRandomGeneratedWidth(), GetRandomGeneratedHeigth()];
-        CellReferencer.Init();
-        CreateGrid();
-    }
-
-    public void Start()
-    {
-        Init();
-    }
 }
 
 

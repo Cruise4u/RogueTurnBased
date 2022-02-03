@@ -19,5 +19,4 @@ MonoBehaviour:
   cellPrefab: {fileID: 5935403153080798631, guid: dc7dc6d617a5f8048b2807edd575d7fc, type: 3}
   cellSpriteList:
   - {fileID: -8982090458763136980, guid: 013e4e89c0fbf2c439b9aa13ff6017fe, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8937081152259512608, guid: 013e4e89c0fbf2c439b9aa13ff6017fe, type: 3}

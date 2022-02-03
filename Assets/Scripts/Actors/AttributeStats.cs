@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+public class AttributeStats : MonoBehaviour
 {
-    public CharacterStatsData statsData;
+    public AttributeStatsData statsData;
     public int currentHealth { get; set; }
     public int maxHealth { get; set; }
     public int attackDamage { get; set; }
@@ -26,7 +26,7 @@ public class CharacterStats : MonoBehaviour
     }
 }
 
-public class CharacterStatsData : MonoBehaviour
+public class AttributeStatsData : MonoBehaviour
 {
     public int maxHealth;
     public int attackDamage;
