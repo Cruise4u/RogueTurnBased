@@ -4,5 +4,5 @@ using UnityEngine;
 //Observer
 public interface IReferenceReceiver
 {
-    void GetNotified(Cell cell);
+    void GetNotified();
 }

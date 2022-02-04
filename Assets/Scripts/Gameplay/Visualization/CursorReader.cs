@@ -2,14 +2,11 @@
 using UnityEngine;
 
 
-public class CursorInformationReader 
+public class CursorReader 
 {
-    private GameObject cellNormalDisplayObject;
-    private GameObject cellAbilityDisplayObject;
-
-    public CursorInformationReader(GameObject cellNormalDisplayObject)
+    public CursorReader()
     {
-        this.cellNormalDisplayObject = cellNormalDisplayObject;
+
     }
 
     public Cell GetCellObjectHighlightedUnderCursor()
@@ -25,15 +22,6 @@ public class CursorInformationReader
         }
     }
 
-    public void SetCellObjectHighlightedUnderCursor()
-    {
-        if (RaycastTool.IsHitted(GUIController.baseCamera, GUIController.usableMask))
-        {
-            var currentSelectedCell = RaycastTool.GetCellObject();
-            cellNormalDisplayObject.transform.position = currentSelectedCell.transform.position;
-        }
-    }
-
     public void ShowInfoFromTile()
     {
         //In the GUI pass text that says :
@@ -44,3 +32,6 @@ public class CursorInformationReader
         //General Info about cell
     }
 }
+
+
+

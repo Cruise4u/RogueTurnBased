@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ReferenceManager : MonoBehaviour
 {
-    public static IReferenceGrid gridReference;
+    public static IGridContext gridReference;
 
     public void Start()
     {
@@ -20,3 +20,4 @@ public class ReferenceManager : MonoBehaviour
     }
 
 }
+

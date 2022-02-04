@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GlobalReferenceFactory : IReferenceFactory
 {
-    public IReferenceGrid CreateGridReference()
+    public IGridContext CreateGridReference()
     {
         return new GridReferencer();
     }

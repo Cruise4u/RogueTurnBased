@@ -14,9 +14,11 @@ public class GridGenerator : MonoBehaviour
 	{
 		width = MathTool.GetRandomValue(gridData.width, gridData.widthMargin);
 		heigth = MathTool.GetRandomValue(gridData.height, gridData.heightMargin);
+		Debug.Log(ReferenceManager.gridReference);
 		ReferenceManager.gridReference.CellArray = new Cell[width, heigth];
 	}
-	public void CreateGrid(IReferenceGrid gridReference)
+
+	public void CreateGrid(IGridContext gridReference)
 	{
 		GameObject cellParentObject = new GameObject();
 		for (int y = 0; y < heigth; y++)
@@ -28,7 +30,7 @@ public class GridGenerator : MonoBehaviour
 		}
 	}
 
-	public void CreateCell(IReferenceGrid gridReference, int x, int y, GameObject parent)
+	public void CreateCell(IGridContext gridReference, int x, int y, GameObject parent)
 	{
 		var cellData = new CellData(x, y);
 		var cellInstance = Instantiate(gridData.cellPrefab);
@@ -68,7 +70,7 @@ public class GridGenerator : MonoBehaviour
 	{
 		Init(); 
 		CreateGrid(ReferenceManager.gridReference);
-		ActorSpawner.SpawnCharacterAtCell(ReferenceManager.gridReference.CellArray[MathTool.GetMedianValue(width), MathTool.GetMedianValue(width)]);
+		//ActorSpawner.SpawnActorAtCell(ReferenceManager.gridReference.CellArray[MathTool.GetMedianValue(width), MathTool.GetMedianValue(width)]);
 	}
 }
 

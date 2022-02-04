@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ActorMovement : MonoBehaviour,IPositionReference
+public class ActorMovement : MonoBehaviour,IPositionContext
 {
     public int _x;
     public int _y;
@@ -9,19 +9,33 @@ public class ActorMovement : MonoBehaviour,IPositionReference
     public int x { get => _x; set => _x = value; }
     public int y { get => _y; set => _y = value; }
 
-    public void SetWorldPosition(Vector3 position)
+    public void Init()
     {
-        transform.position = position;
+    
+    }
+    public void SetGridPosition(Cell cell)
+    {
+        x = cell.cellData.x;
+        y = cell.cellData.y;
     }
 
-    public void SetGridPosition(int x, int y)
+    public void SetWorldPosition(Vector3 position,bool isInstantMovement)
     {
-        this.x = x;
-        this.y = y;
+        if (!isInstantMovement)
+        {
+
+        }
+        else
+        {
+            transform.position = position;
+        }
     }
 
-    public void Move(IReferenceGrid referenceGrid)
+
+    public void Move(IGridContext gridContext,bool isInstantMovement)
     {
-        referenceGrid.CellArray[x]
+        SetGridPosition(gridContext.CellArray[x, y]);
+        SetWorldPosition(gridContext.CellArray[x, y].transform.position, isInstantMovement);
     }
+
 }
