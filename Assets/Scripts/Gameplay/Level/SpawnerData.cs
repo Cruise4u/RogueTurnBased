@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu()]
 public class SpawnerData : ScriptableObject
 {
-    public GameObject playerObject;
-    public GameObject enemyObject;
-    public GameObject anotherNpcObject;
+    public GameObject[] spawnInstanceArray;
 
-    public void Something()
-    {
 
-    }
 }

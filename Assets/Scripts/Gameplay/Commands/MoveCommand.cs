@@ -1,22 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class MoveCommand : ICommand
 {
     private Transform transform;
-    private IGridContext gridContext;
+    private IPositionContext positionContext;
+    private int x;
+    private int y;
 
     public MoveCommand(Transform transform)
     {
         this.transform = transform;
-        gridContext = ReferenceManager.gridReference;
     }
 
-    public void Execute(ICommandContext context)
+    public void SetupCoordinates(int x,int y)
     {
-        var positionContext = (IPositionContext)context;
-        positionContext.Move(gridContext, false);
+        this.x = x;
+        this.y = y;
     }
 
+    public void Execute()
+    {
+        positionContext.Move(positionContext.x,positionContext.y, false);
+    }
 
 }

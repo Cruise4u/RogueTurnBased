@@ -1,17 +1,16 @@
 ﻿public class SpawnCommand : ICommand
 {
-    private IGridContext gridReference;
+    private int actorID;
+    private ISpawnContext spawnContext;
 
-    public SpawnCommand()
+    public SpawnCommand(int actorID,ISpawnContext spawnContext)
     {
-        gridReference = ReferenceManager.gridReference;
+        this.actorID = actorID;
+        this.spawnContext = spawnContext;
     }
 
-    public void Execute(ICommandContext context)
+    public void Execute()
     {
-        var spawnContext = (ISpawnContext)context;
-        //spawnContext.Spawn();
+        spawnContext.Spawn(actorID);
     }
-
-
 }

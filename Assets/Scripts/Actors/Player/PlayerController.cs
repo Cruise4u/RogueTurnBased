@@ -1,27 +1,58 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public ActorCommandManager actorCommandManager;
 
-    public void Init()
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //public override void SetupCommands()
+    //{
+    //    commandInvoker = new CommandInvoker();
+    //    // ID -> 0
+    //    commandInvoker.AddCommand(new MoveCommand(transform));
+    //    // ID -> 1
+    //}
+}
+
+
+
+
+
+
+
+
+
+public class CommandInvoker
+{
+    public List<ICommand> commandList;
+
+    public void AddCommand(ICommand command)
     {
-        actorCommandManager.Init();
+        commandList.Add(command);
     }
 
-    public void Something(int orderIndex)
+    public void RemoveCommand(ICommand command)
     {
-        switch(orderIndex)
-        {
-            case 0:
-                actorCommandManager.ExecuteCommandOfType(actorCommandManager.moveCommand);
-                break;
-        }
+        commandList.Remove(command);
     }
 
-    public void Start()
+    public void InvokeCommand(int id)
     {
-        Init();
+        commandList[id].Execute();
     }
+
+
 }

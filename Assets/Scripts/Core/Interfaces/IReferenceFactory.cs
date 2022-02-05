@@ -3,5 +3,5 @@ using UnityEngine;
 
 public interface IReferenceFactory
 {
-    public IGridContext CreateGridReference();
+    public IGridContext CreateGridContext();
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridReferencer : IGridContext
+public class GridContext : IGridContext
 {
     public Cell[,] cellArray;
     public Cell[,] CellArray { get => cellArray; set => cellArray = value; }

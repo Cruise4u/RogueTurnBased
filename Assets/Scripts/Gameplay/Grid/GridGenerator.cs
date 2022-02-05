@@ -14,8 +14,7 @@ public class GridGenerator : MonoBehaviour
 	{
 		width = MathTool.GetRandomValue(gridData.width, gridData.widthMargin);
 		heigth = MathTool.GetRandomValue(gridData.height, gridData.heightMargin);
-		Debug.Log(ReferenceManager.gridReference);
-		ReferenceManager.gridReference.CellArray = new Cell[width, heigth];
+		ReferenceManager.gridContext.CellArray = new Cell[width, heigth];
 	}
 
 	public void CreateGrid(IGridContext gridReference)
@@ -69,7 +68,7 @@ public class GridGenerator : MonoBehaviour
 	public void Start()
 	{
 		Init(); 
-		CreateGrid(ReferenceManager.gridReference);
+		CreateGrid(ReferenceManager.gridContext);
 		//ActorSpawner.SpawnActorAtCell(ReferenceManager.gridReference.CellArray[MathTool.GetMedianValue(width), MathTool.GetMedianValue(width)]);
 	}
 }

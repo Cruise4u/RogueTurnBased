@@ -1,13 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Spawner : MonoBehaviour,ISpawnContext
+public class Spawner : MonoBehaviour, ISpawnContext
 {
     public SpawnerData spawnerData;
 
-
-    public void Spawn(IGridContext gridReference)
+    public void Spawn(int actorID)
     {
-        throw new NotImplementedException();
+        Instantiate(spawnerData.spawnInstanceArray[actorID]);
     }
 }

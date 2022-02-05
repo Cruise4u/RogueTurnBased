@@ -8,5 +8,5 @@ public interface ICommandContext
 
 public interface ICommand
 {
-    void Execute(ICommandContext context);
+    void Execute();
 }

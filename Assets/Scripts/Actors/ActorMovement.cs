@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ActorMovement : MonoBehaviour,IPositionContext
+public class ActorMovement : MonoBehaviour, IPositionContext
 {
     public int _x;
     public int _y;
@@ -9,17 +9,18 @@ public class ActorMovement : MonoBehaviour,IPositionContext
     public int x { get => _x; set => _x = value; }
     public int y { get => _y; set => _y = value; }
 
-    public void Init()
+    public void SetCoordinates(int x,int y)
     {
-    
-    }
-    public void SetGridPosition(Cell cell)
-    {
-        x = cell.cellData.x;
-        y = cell.cellData.y;
+        this.x = x;
+        this.y = y;
     }
 
-    public void SetWorldPosition(Vector3 position,bool isInstantMovement)
+    public void Move(int x, int y, bool isInstantMovement)
+    {
+        SetWorldPosition(ReferenceManager.gridContext.CellArray[x, y].transform.position, isInstantMovement);
+    }
+
+    public void SetWorldPosition(Vector3 position, bool isInstantMovement)
     {
         if (!isInstantMovement)
         {
@@ -30,12 +31,4 @@ public class ActorMovement : MonoBehaviour,IPositionContext
             transform.position = position;
         }
     }
-
-
-    public void Move(IGridContext gridContext,bool isInstantMovement)
-    {
-        SetGridPosition(gridContext.CellArray[x, y]);
-        SetWorldPosition(gridContext.CellArray[x, y].transform.position, isInstantMovement);
-    }
-
-}
+} 

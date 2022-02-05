@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class ReferenceManager : MonoBehaviour
 {
-    public static IGridContext gridReference;
+    public static IGridContext gridContext;
+    public static ICommandInvokerContext commandInvokerContext;
 
     public void Start()
     {
@@ -16,7 +17,7 @@ public class ReferenceManager : MonoBehaviour
     }
     public void CreateReferenceFactory(IReferenceFactory factory)
     {
-        gridReference = factory.CreateGridReference();
+        gridContext = factory.CreateGridContext();
     }
 
 }
