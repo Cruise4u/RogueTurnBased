@@ -16,12 +16,12 @@ public static class RaycastTool
         return hittedGO;
     }
 
-    public static bool IsHitted(Camera camera,LayerMask mask, string tag)
+    public static bool IsHitted(Camera camera,LayerMask mask)
     {
         bool isHitted;
         var ray = camera.ScreenPointToRay(Input.mousePosition);
-        raycastHit = Physics2D.Raycast(ray.origin, ray.direction, mask);
-        if (raycastHit.collider != null && raycastHit.collider.CompareTag(tag))
+        raycastHit = Physics2D.Raycast(ray.origin, ray.direction, 10);
+        if(raycastHit.collider != null && raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Usable"))
         {
             isHitted = true;
         }

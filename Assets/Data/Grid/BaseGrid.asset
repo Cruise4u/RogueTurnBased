@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f9ac8711baee0459d97d9c304f1d05, type: 3}
+  m_Name: BaseGrid
+  m_EditorClassIdentifier: 
+  width: 9
+  widthMargin: 17
+  height: 7
+  heightMargin: 14
+  cellPrefab: {fileID: 5935403153080798631, guid: dc7dc6d617a5f8048b2807edd575d7fc, type: 3}
+  cellSpriteList:
+  - {fileID: -8982090458763136980, guid: 013e4e89c0fbf2c439b9aa13ff6017fe, type: 3}
+  - {fileID: 8937081152259512608, guid: 013e4e89c0fbf2c439b9aa13ff6017fe, type: 3}
