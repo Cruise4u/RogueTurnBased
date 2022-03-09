@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class GlobalReferenceFactory : IReferenceFactory
 {
-    public IGridContext CreateGridContext()
+    public IGridReference CreateGridContext()
     {
-        return new GridContext();
+        return new GridReference();
     }
 
 }

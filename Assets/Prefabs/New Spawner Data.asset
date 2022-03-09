@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dbb092310ee2744b140eb17e632cfb, type: 3}
   m_Name: New Spawner Data
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 3791755627899089607, guid: 93e909846ff55dd4aa5e8fb644158912, type: 3}
-  enemyObject: {fileID: 0}
-  anotherNpcObject: {fileID: 0}
+  spawnInstanceArray:
+  - {fileID: 3791755627899089607, guid: 93e909846ff55dd4aa5e8fb644158912, type: 3}

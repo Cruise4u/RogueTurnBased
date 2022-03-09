@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class MathTool
@@ -23,6 +25,35 @@ public static class MathTool
 		return value;
 	}
 
+	public static Vector2 GetRotatedVectorPosition(Vector2 vector, int angle)
+	{
+		float xAngle = vector.x * Mathf.Cos(angle * Mathf.Deg2Rad) - vector.y * Mathf.Sin(angle * Mathf.Deg2Rad);
+		float yAngle = vector.x * Mathf.Sin(angle * Mathf.Deg2Rad) + vector.y * Mathf.Cos(angle * Mathf.Deg2Rad);
+		return new Vector2(xAngle, yAngle);
+	}
+
+	public static int GetHorizontalMaxValue(List<CellData> cellDataList)
+	{
+		var value = cellDataList.Max(coordinate => coordinate.x);
+		return value;
+	}
+	public static int GetHorizontalMinValue(List<CellData> cellDataList)
+	{
+		var value = cellDataList.Min(coordinate => coordinate.x);
+		return value;
+	}
+
+	public static int GetVerticalMaxValue(List<CellData> cellDataList)
+    {
+		var value = cellDataList.Max(coordinate => coordinate.y);
+		return value;
+    }
+
+	public static int GetVerticalMinValue(List<CellData> cellDataList)
+	{
+		var value = cellDataList.Min(coordinate => coordinate.y);
+		return value;
+	}
 }
 
 

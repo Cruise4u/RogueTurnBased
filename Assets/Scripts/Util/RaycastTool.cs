@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public static class RaycastTool
 {
@@ -16,6 +16,7 @@ public static class RaycastTool
         return hittedGO;
     }
 
+    //Mouse Position on Screen
     public static bool IsHitted(Camera camera,LayerMask mask)
     {
         bool isHitted;
@@ -32,6 +33,27 @@ public static class RaycastTool
         return isHitted;
     }
 
+    //From One position to Another on Orthogonal plane (2D)
+    public static bool IsHitted(Vector2 origin,Vector2 direction,float radius)
+    {
+        bool isHitted;
+        raycastHit = Physics2D.Raycast(origin, direction, radius);
+        if (raycastHit.collider != null && raycastHit.collider.gameObject.CompareTag(""))
+        {
+            isHitted = true;
+        }
+        else
+        {
+            isHitted = false;
+        }
+        return isHitted;
+    }
 
+    public static Vector3 SetOriginRaycastOnCenter(Vector3 mousePosition)
+    {
+        Vector3 adjustedPosition = new Vector3(mousePosition.x + 0.64f, mousePosition.y + 0.64f, mousePosition.z);
+
+        return adjustedPosition;
+    }
 }
 

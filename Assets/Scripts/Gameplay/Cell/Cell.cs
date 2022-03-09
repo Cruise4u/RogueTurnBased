@@ -1,7 +1,0 @@
-﻿using System.Collections;
-using UnityEngine;
-
-public class Cell : MonoBehaviour
-{
-    public CellData cellData;
-}

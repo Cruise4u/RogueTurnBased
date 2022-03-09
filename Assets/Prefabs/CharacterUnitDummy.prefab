@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 3791755627899089608}
   - component: {fileID: 6452776402282739045}
   - component: {fileID: 1108876608151218398}
-  - component: {fileID: 3621264039395396675}
+  - component: {fileID: 353776008104850126}
   - component: {fileID: 8651912998444735939}
+  - component: {fileID: -4937087289573955250}
   m_Layer: 0
   m_Name: CharacterUnitDummy
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d8cee1a6fe155ab4d917455c5b0fed39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,7 +120,7 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 5cd01a9da498a4a4ba9aa716b7627264, type: 2}
---- !u!114 &3621264039395396675
+--- !u!114 &353776008104850126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3791755627899089607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ec6f741b938c942b4bb926830a619c, type: 3}
+  m_Script: {fileID: 11500000, guid: 63589541c8a79e34d97dddbccf132675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8651912998444735939
@@ -143,5 +144,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22095f26f9f7c0419159a561cc54606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _x: 0
-  _y: 0
+  x: 0
+  y: 0
+--- !u!114 &-4937087289573955250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791755627899089607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875d5fd027497554188cd2dc262ddea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testCamera: {fileID: 0}
